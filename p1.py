@@ -43,6 +43,9 @@ if __name__ == '__main__':
     out_directory_path = sys.argv[2]
 
     # TODO
+    # filter original waveform to f1-only and f3-only time-domain waveform
+    # f1 = ...
+    # f3 = ...
     
     # Do not modify these 3 lines
     plot_ak(a, path=os.path.join(out_directory_path, 'freq.png'))
