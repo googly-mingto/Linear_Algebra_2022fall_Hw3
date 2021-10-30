@@ -28,9 +28,8 @@ def compress_grid(I):
   count = 0
   N = len(I)
     
-  # TODO  
   # generate basis "B" and compute variable "DCT" coefficient of grid I  
-  # DCT = ...
+  DCT = CosineTrans2d(B, I)
   
   # make a copy for DCT
   DCT_chopped = DCT.copy()
@@ -45,10 +44,9 @@ def compress_grid(I):
           if DCT_chopped[x,u] == 0.0:
             count += 1
             
-  # TODO          
   # do inverse 2D DCT on "DCT_chopped" to reconstruct the grid, save as "reconstruct_I"
-  # reconstruct_I = ...
-  
+  reconstruct_I = InvCosineTrans2d(B, DCT_chopped)
+
   return reconstruct_I + 128, count
 
 if __name__ == '__main__':
