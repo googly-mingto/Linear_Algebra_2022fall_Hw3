@@ -15,7 +15,7 @@ def CosineTrans2d(B, I):
 # output: reconstructed image (I')
 def InvCosineTrans2d(B, a):
     # TODO
-    # implement 2D DCT
+    # implement 2D iDCT
     return 
 
 
@@ -29,6 +29,7 @@ def compress_grid(I):
   N = len(I)
     
   # generate basis "B" and compute variable "DCT" coefficient of grid I  
+  B = gen_basis(N)
   DCT = CosineTrans2d(B, I)
   
   # make a copy for DCT
@@ -63,10 +64,14 @@ if __name__ == '__main__':
     [24,  35,  55,  64,  81, 104, 113,  92],
     [49,  64,  78,  87, 103, 121, 120, 101],
     [72,  92,  95,  98, 112, 100, 103,  99]])
-
-  # read image and preprocess to 2D array
-  I = cv2.imread(im_path)
-  I = I[:, :, 0].astype('float')
+  
+  # control quality factor
+  QF = 70.0
+  scale = 200 - 2*QF
+  scale /= 100.0
+  Q_table *= scale
+  # read image
+  I = cv2.imread(im_path).astype('float')
   I -= 128
   N = len(I)
 
