@@ -67,12 +67,12 @@ if __name__ == '__main__':
   
   # control quality factor
   QF = 70.0
-  scale = 200 - 2*QF
+  scale = 200.0 - 2 * QF
   scale /= 100.0
   Q_table *= scale
   # read image
   I = cv2.imread(im_path).astype('float')
-  I -= 128
+  I -= 128.0
   N = len(I)
 
   reconstruct_I = np.zeros((N, N))
