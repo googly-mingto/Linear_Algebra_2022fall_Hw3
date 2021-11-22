@@ -26,16 +26,16 @@ def plot_ak(a, path = './freq.png'):
 def CosineTrans(x, B):
     # TODO
     # implement cosine transform
-    return
+    return a
 
 def InvCosineTrans(a, B):
     # TODO
     # implement inverse cosine transform
-    return
+    return x
 
 def gen_basis(N):
     # TODO
-    return
+    return B
 
 if __name__ == '__main__':
     # Do not modify these 2 lines
