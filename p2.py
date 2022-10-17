@@ -7,16 +7,14 @@ import sys
 # input: Basis (B), 2D image array (I)
 # output: coefficient in 2D (a)
 def CosineTrans2d(B, I):
-    # TODO
-    # implement 2D DCT
-    return 
+    a = B.T.dot(I[:,:,0].dot(B))
+    return a
 
 # input: Basis (B), coefficient in 2D (a)
 # output: reconstructed image (I')
 def InvCosineTrans2d(B, a):
-    # TODO
-    # implement 2D iDCT
-    return 
+    I =B.dot(a.dot(B.T))
+    return I
 
 
 '''
@@ -30,6 +28,7 @@ def compress_grid(I):
     
   # generate basis "B" and compute variable "DCT" coefficient of grid I  
   B = gen_basis(N)
+  # print(B.shape)
   DCT = CosineTrans2d(B, I)
   
   # make a copy for DCT
@@ -66,7 +65,7 @@ if __name__ == '__main__':
     [72,  92,  95,  98, 112, 100, 103,  99]]).astype(np.float)
   
   # control quality factor
-  QF = 70.0
+  QF = 50.0
   scale = 200.0 - 2 * QF
   scale /= 100.0
   Q_table *= scale
